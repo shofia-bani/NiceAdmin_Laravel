@@ -79,16 +79,8 @@
                             <td>{{ $book->end_date }}</td>
                             <td>{{ $book->status }}</td>
                             <td>
-                                <a href="{{ route('books.show', $book->id) }}" class="btn btn-info btn-sm">Detail</a>
+                               
                                 <a href="{{ route('books.edit', $book->id) }}" class="btn btn-warning btn-sm">Edit</a>
-
-                                {{-- Tombol "Kembalikan" hanya muncul jika statusnya 'borrowed' atau 'reserved' --}}
-                                @if ($book->status == 'borrowed' || $book->status == 'reserved')
-                                    <form action="{{ route('books.return', $book->id) }}" method="POST" style="display:inline;" class="d-inline" onsubmit="return confirm('Apakah Anda yakin ingin menandai buku ini sebagai dikembalikan?')">
-                                        @csrf
-                                        <button type="submit" class="btn btn-success btn-sm">Kembalikan</button>
-                                    </form>
-                                @endif
 
                                 <form action="{{ route('books.destroy', $book->id) }}" method="POST"
                                 style="display:inline;" class="d-inline" onsubmit="return confirm('Apakah Anda yakin ingin menghapus penyewaan ini?')">

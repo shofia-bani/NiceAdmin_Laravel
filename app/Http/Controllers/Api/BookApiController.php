@@ -9,17 +9,7 @@ use App\Models\Product; // Model untuk data produk/buku yang tersedia
 
 class BookController extends Controller
 {
-    // Opsional: Anda bisa menambahkan middleware di sini untuk otentikasi atau otorisasi
-    // public function __construct()
-    // {
-    //     $this->middleware('auth'); // Contoh: hanya user yang login yang bisa mengakses
-    //     // $this->middleware('can:manage-borrowings'); // Contoh middleware otorisasi jika ada
-    // }
-
-    /**
-     * Menampilkan daftar semua penyewaan buku.
-     * Termasuk fitur pencarian dan filter berdasarkan status.
-     */
+    
     public function index(Request $request)
     {
         // Eager load relasi 'product' dan 'student' untuk menghindari N+1 query
