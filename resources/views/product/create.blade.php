@@ -28,6 +28,7 @@
                             @error('student_id') <div class="text-danger">{{ $message }}</div> @enderror
                         </div>
 
+                        {{-- Input Judul Buku dan Pengarang dihapus, diganti dengan Product --}}
                         <div class="mb-3">
                             <label for="product_id" class="form-label">Pilih Buku</label>
                             <select class="form-control" id="product_id" name="product_id" required>
@@ -40,6 +41,18 @@
                             </select>
                             @error('product_id') <div class="text-danger">{{ $message }}</div> @enderror
                         </div>
+
+                        {{-- <div class="mb-3">
+                            <label for="title" class="form-label">Judul Buku</label>
+                            <input type="text" class="form-control" id="title" name="title" value="{{ old('title') }}" required>
+                            @error('title') <div class="text-danger">{{ $message }}</div> @enderror
+                        </div>
+
+                        <div class="mb-3">
+                            <label for="author" class="form-label">Pengarang</label>
+                            <input type="text" class="form-control" id="author" name="author" value="{{ old('author') }}" required>
+                            @error('author') <div class="text-danger">{{ $message }}</div> @enderror
+                        </div> --}}
 
                         <div class="mb-3">
                             <label for="quantity" class="form-label">Jumlah Buku yang Dipinjam</label>

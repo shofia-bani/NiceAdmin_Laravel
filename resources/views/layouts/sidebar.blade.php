@@ -20,25 +20,16 @@
         </li>
         <li class="nav-item">
             <a class="nav-link" href="{{url('books')}}">
-                <i class="bi bi-grid">
+                <i class="bi bi-card-list">
                     <span>
-                        Book
+                        Penyewaan Book
                     </span>
                 </i>
             </a>
         </li>
         <li class="nav-item">
-            <a class="nav-link" href="{{url('/admin/source')}}">
-                <i class="bi bi-grid">
-                    <span>
-                        Source
-                    </span>
-                </i>
-            </a>
-        </li>
-        <li class="nav-item">
-            <a class="nav-link" href="{{url('/admin/product')}}">
-                <i class="bi bi-grid">
+            <a class="nav-link" href="{{route('product.index')}}">
+                <i class="bi bi-book">
                     <span>
                         Product                       
                     </span>

@@ -9,17 +9,29 @@ class Book extends Model
 {
     use HasFactory;
 
-   protected $fillable = [
-    'name',
-    'student_id_number', // Jangan lupa kolom ini dari migrasi sebelumnya
-    'major',             // Jangan lupa kolom ini dari migrasi sebelumnya
-    'email',             // Tambahkan ini
-    'phone',             // Tambahkan ini
-];
+    // Kolom-kolom yang boleh diisi secara mass assignment
+    protected $fillable = [
+        'student_id',
+        'product_id',
+        'quantity',
+        'start_date',
+        'end_date',
+        'status',
+    ];
 
-    // Relasi dengan model Student
+    /**
+     * Relasi: Sebuah penyewaan buku dimiliki oleh satu siswa.
+     */
     public function student()
     {
         return $this->belongsTo(Student::class);
+    }
+
+    /**
+     * Relasi: Sebuah penyewaan buku terkait dengan satu produk (buku fisik).
+     */
+    public function product()
+    {
+        return $this->belongsTo(Product::class);
     }
 }

@@ -30,19 +30,20 @@
                         </div>
 
                         <div class="mb-3">
-                            <label for="title" class="form-label">Judul Buku</label>
-                            <input type="text" class="form-control" id="title" name="title" value="{{ old('title', $book->title) }}" required>
-                            @error('title') <div class="text-danger">{{ $message }}</div> @enderror
+                            <label for="product_id" class="form-label">Pilih Buku</label>
+                            <select class="form-control" id="product_id" name="product_id" required>
+                                <option value="">Pilih Buku dari Daftar Produk</option>
+                                @foreach($products as $product)
+                                    <option value="{{ $product->id }}" {{ old('product_id', $book->product_id) == $product->id ? 'selected' : '' }}>
+                                        {{ $product->name }} (Penulis: {{ $product->penulis }}, Stok: {{ $product->quantity }})
+                                    </option>
+                                @endforeach
+                            </select>
+                            @error('product_id') <div class="text-danger">{{ $message }}</div> @enderror
                         </div>
 
                         <div class="mb-3">
-                            <label for="author" class="form-label">Pengarang</label>
-                            <input type="text" class="form-control" id="author" name="author" value="{{ old('author', $book->author) }}" required>
-                            @error('author') <div class="text-danger">{{ $message }}</div> @enderror
-                        </div>
-
-                        <div class="mb-3">
-                            <label for="quantity" class="form-label">Jumlah</label>
+                            <label for="quantity" class="form-label">Jumlah Buku yang Dipinjam</label>
                             <input type="number" class="form-control" id="quantity" name="quantity" value="{{ old('quantity', $book->quantity) }}" required min="1">
                             @error('quantity') <div class="text-danger">{{ $message }}</div> @enderror
                         </div>
@@ -63,13 +64,14 @@
                             <label for="status" class="form-label">Status</label>
                             <select class="form-control" id="status" name="status" required>
                                 <option value="borrowed" {{ old('status', $book->status) == 'borrowed' ? 'selected' : '' }}>Dipinjam</option>
-                                <option value="available" {{ old('status', $book->status) == 'available' ? 'selected' : '' }}>Tersedia</option>
+                                <option value="available" {{ old('status', $book->status) == 'available' ? 'selected' : '' }}>Tersedia</option> {{-- Status 'available' mungkin tidak relevan untuk penyewaan --}}
                                 <option value="reserved" {{ old('status', $book->status) == 'reserved' ? 'selected' : '' }}>Dipesan</option>
+                                <option value="returned" {{ old('status', $book->status) == 'returned' ? 'selected' : '' }}>Dikembalikan</option>
                             </select>
                             @error('status') <div class="text-danger">{{ $message }}</div> @enderror
                         </div>
 
-                        <button type="submit" class="btn btn-primary">Update</button>
+                        <button type="submit" class="btn btn-primary">Simpan Perubahan</button>
                         <a href="{{ route('books.index') }}" class="btn btn-secondary">Batal</a>
                     </form>
                 </div>

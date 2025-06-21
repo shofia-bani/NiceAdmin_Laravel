@@ -4,6 +4,7 @@ use App\Http\Controllers\Api\StudentApiController; // Perbaikan ejaan dari Studn
 use App\Http\Controllers\Api\BookApiController;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Route;
+use App\Http\Controllers\Api\ProductApiController; // Pastikan ProductApiController sudah ada
 
 Route::get('/user', function (Request $request) {
     return $request->user();
@@ -11,3 +12,4 @@ Route::get('/user', function (Request $request) {
 
 Route::apiResource('students', StudentApiController::class); // Perbaikan ejaan
 Route::apiResource('books', BookApiController::class);
+Route::apiResource('products', ProductApiController::class); // Pastikan ProductApiController sudah ada
