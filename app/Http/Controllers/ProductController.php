@@ -4,7 +4,6 @@ namespace App\Http\Controllers;
 
 use Illuminate\Http\Request;
 use App\Models\Product;
-// use App\Models\Category; // Hapus baris ini
 
 class ProductController extends Controller
 {
@@ -16,8 +15,7 @@ class ProductController extends Controller
 
     public function create()
     {
-        // $categories = Category::all(); // Hapus baris ini
-        return view('product.create'); // Ubah menjadi tanpa compact('categories')
+        return view('product.create'); 
     }
 
     public function store(Request $request)

@@ -1,5 +1,5 @@
 @extends('layouts.main')
-@section('title', 'Daftar Produk') {{-- Ini seharusnya 'Edit Produk' --}}
+@section('title', 'Edit Produk') 
 @section('content')
 <div class="pagetitle">
     <h1>Edit Produk</h1>
